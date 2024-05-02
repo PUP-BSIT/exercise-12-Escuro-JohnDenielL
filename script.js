@@ -7,11 +7,13 @@ const pauseBtn = document.getElementById("pause-btn");
 const resumeBtn = document.getElementById("resume-btn");
 const stopBtn = document.getElementById("stop-btn");
 
+function incrementCount() {
+  count++;
+  countElement.textContent = count;
+}
+
 function startCounter() {
-  intervalId = setInterval(function () {
-    count++;
-    countElement.textContent = count;
-  }, 1000);
+  intervalId = setInterval(incrementCount, 1000);
   startBtn.disabled = true;
   pauseBtn.disabled = false;
   resumeBtn.disabled = true;
@@ -25,10 +27,7 @@ function pauseCounter() {
 }
 
 function resumeCounter() {
-  intervalId = setInterval(function () {
-    count++;
-    countElement.textContent = count;
-  }, 1000);
+  intervalId = setInterval(incrementCount, 1000);
   pauseBtn.disabled = false;
   resumeBtn.disabled = true;
 }
