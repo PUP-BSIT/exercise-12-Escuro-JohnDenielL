@@ -7,8 +7,8 @@ const pauseBtn = document.getElementById("pause-btn");
 const resumeBtn = document.getElementById("resume-btn");
 const stopBtn = document.getElementById("stop-btn");
 
-startBtn.addEventListener("click", () => {
-  intervalId = setInterval(() => {
+function startCounter() {
+  intervalId = setInterval(function () {
     count++;
     countElement.textContent = count;
   }, 1000);
@@ -16,24 +16,24 @@ startBtn.addEventListener("click", () => {
   pauseBtn.disabled = false;
   resumeBtn.disabled = true;
   stopBtn.disabled = false;
-});
+}
 
-pauseBtn.addEventListener("click", () => {
+function pauseCounter() {
   clearInterval(intervalId);
   pauseBtn.disabled = true;
   resumeBtn.disabled = false;
-});
+}
 
-resumeBtn.addEventListener("click", () => {
-  intervalId = setInterval(() => {
+function resumeCounter() {
+  intervalId = setInterval(function () {
     count++;
     countElement.textContent = count;
   }, 1000);
   pauseBtn.disabled = false;
   resumeBtn.disabled = true;
-});
+}
 
-stopBtn.addEventListener("click", () => {
+function stopCounter() {
   clearInterval(intervalId);
   count = 0;
   countElement.textContent = count;
@@ -41,4 +41,9 @@ stopBtn.addEventListener("click", () => {
   pauseBtn.disabled = true;
   resumeBtn.disabled = true;
   stopBtn.disabled = true;
-});
+}
+
+startBtn.addEventListener("click", startCounter);
+pauseBtn.addEventListener("click", pauseCounter);
+resumeBtn.addEventListener("click", resumeCounter);
+stopBtn.addEventListener("click", stopCounter);
