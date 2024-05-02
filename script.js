@@ -2,10 +2,10 @@ let count = 0;
 let intervalId;
 
 const countElement = document.getElementById("count");
-const startBtn = document.getElementById("startBtn");
-const pauseBtn = document.getElementById("pauseBtn");
-const resumeBtn = document.getElementById("resumeBtn");
-const stopBtn = document.getElementById("stopBtn");
+const startBtn = document.getElementById("start-btn");
+const pauseBtn = document.getElementById("pause-btn");
+const resumeBtn = document.getElementById("resume-btn");
+const stopBtn = document.getElementById("stop-btn");
 
 startBtn.addEventListener("click", () => {
   intervalId = setInterval(() => {
